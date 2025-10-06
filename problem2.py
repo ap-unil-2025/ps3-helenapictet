@@ -4,6 +4,8 @@ Convert between Celsius and Fahrenheit temperatures.
 """
 
 def celsius_to_fahrenheit(celsius):
+    return float((celsius*9/5) + 32)
+
     """
     Convert Celsius to Fahrenheit.
     Formula: F = (C × 9/5) + 32
@@ -14,14 +16,14 @@ def celsius_to_fahrenheit(celsius):
     Returns:
         float: Temperature in Fahrenheit
     """
-    # TODO: Implement this function
 
     
-    return float((celsius*9/5) + 32)
     
 
 
 def fahrenheit_to_celsius(fahrenheit):
+    return float((fahrenheit-32)*(5/9))
+
     """
     Convert Fahrenheit to Celsius.
     Formula: C = (F - 32) × 5/9
@@ -32,11 +34,20 @@ def fahrenheit_to_celsius(fahrenheit):
     Returns:
         float: Temperature in Celsius
     """
-    # TODO: Implement this function
-    return float((fahrenheit-32)*(5/9))
 
+ print("Temperature Converter")
+    print("-" * 30)
 
 def temperature_converter():
+    temp = float(input('Enter temperature:'))
+    unit = input('Enter the unit that you have (C or F):').strip().upper()
+
+    if unit == 'C':
+        print('In fahrenheit:', round(celsius_to_fahrenheit(temp)),2)
+    elif unit == 'F':
+        print('In celcius:', round(fahrenheit_to_celsius(temp)),2)
+    else:
+        print('Invalid unit, please enter C or F')
     """
     Interactive temperature converter.
     Ask user for:
@@ -44,26 +55,15 @@ def temperature_converter():
     2. Current unit (C or F)
     3. Convert and display result
     """
-    print("Temperature Converter")
-    print("-" * 30)
+   
 
-    # TODO: Implement the interactive converter
+    # Implement the interactive converter
     # Remember to:
     # - Get temperature value from user
     # - Get unit (C or F) from user
     # - Validate input
     # - Perform conversion
     # - Display result rounded to 2 decimal places
-    temp = float(input('Enter temperature:'))
-    unit = input('Enter the unit that you have (C or F):').strip().upper()
-
-    if unit == 'C':
-        print('In fahrenheit:', celcius_to_fahrenheit(temp))
-    elif unit == 'F':
-        
-    
-
-    
 
 
 # Test cases (DO NOT MODIFY)
@@ -84,3 +84,4 @@ if __name__ == "__main__":
 
     # Run interactive converter
     temperature_converter()
+    
