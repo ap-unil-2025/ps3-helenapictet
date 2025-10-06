@@ -35,17 +35,18 @@ def fahrenheit_to_celsius(fahrenheit):
         float: Temperature in Celsius
     """
 
- print("Temperature Converter")
-    print("-" * 30)
+print("Temperature Converter")
+
+print("-" * 30)
 
 def temperature_converter():
     temp = float(input('Enter temperature:'))
     unit = input('Enter the unit that you have (C or F):').strip().upper()
 
     if unit == 'C':
-        print('In fahrenheit:', round(celsius_to_fahrenheit(temp)),2)
+        print('In fahrenheit:', round((celsius_to_fahrenheit(temp)),2))
     elif unit == 'F':
-        print('In celcius:', round(fahrenheit_to_celsius(temp)),2)
+        print('In celcius:', round((fahrenheit_to_celsius(temp)),2))
     else:
         print('Invalid unit, please enter C or F')
     """
@@ -84,4 +85,4 @@ if __name__ == "__main__":
 
     # Run interactive converter
     temperature_converter()
-    
+
