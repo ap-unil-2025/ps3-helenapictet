@@ -14,13 +14,16 @@ def get_numbers_from_user():
     numbers = []
 
     while True:
-        # TODO: Get input from user
-        # TODO: Check if user typed 'done'
-        # TODO: Try to convert to float and add to list
-        # TODO: Handle invalid input gracefully
-        pass
-
+        value = input('Enter a number, or type done when you are finished').strip().lower()
+        if value == 'done':
+            break
+        try:
+            number = float(value)
+            numbers.append(number)
+        except ValueError:
+            print('Invalid input. please enter a valid number or done')
     return numbers
+
 
 
 def analyze_numbers(numbers):
@@ -45,13 +48,21 @@ def analyze_numbers(numbers):
 
     analysis = {}
 
-    # TODO: Calculate count
-    # TODO: Calculate sum
-    # TODO: Calculate average
-    # TODO: Find minimum
-    # TODO: Find maximum
-    # TODO: Count even numbers (hint: use modulo operator)
-    # TODO: Count odd numbers
+    analysis["count"] = len(numbers)
+    analysis["sum"] = sum(numbers)
+    analysis["average"] = (sum(numbers)/len(numbers))
+    analysis["minimum"] = min(numbers)
+    analysis["maximum"] = max(numbers)
+
+    even_count = 0
+    odd_count = 0
+    for n in numbers:
+        if int(n) % 2 == 0:   # cast to int in case numbers contain floats
+            even_count += 1
+        else:
+            odd_count += 1
+    analysis["even"] = even_count
+    analysis["odd"] = odd_count
 
     return analysis
 
@@ -64,18 +75,16 @@ def display_analysis(analysis):
         analysis (dict): Dictionary containing analysis results
     """
     if not analysis:
+        print("No analysis results to display.")
         return
 
     print("\nAnalysis Results:")
     print("-" * 20)
+ # Loop through dictionary and print each key/value
+    for key, value in analysis.items():
+        # Capitalize the key and align nicely
+        print(f"{key.capitalize():<12}: {value}")
 
-    # TODO: Display all analysis results in a nice format
-    # Example:
-    # Count: 5
-    # Sum: 25
-    # Average: 5.00
-    # etc.
-    pass
 
 
 def main():
